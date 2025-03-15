@@ -20,6 +20,7 @@ func main() {
 	invoker.RegisterCommand("json", &commands.JsonCommand{})
 	invoker.RegisterCommand("net", &commands.NetworkCommand{})
 	invoker.RegisterCommand("pwd", &commands.PasswordCommand{})
+	invoker.RegisterCommand("help", &commands.HelpCommand{})
 
 	invoker.ExecuteCommand(os.Args[1], os.Args[2:])
 }
