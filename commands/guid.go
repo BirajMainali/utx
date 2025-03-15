@@ -48,7 +48,6 @@ func (g *GuidCommand) Execute(args []string) {
 		return
 	}
 
-	// Convert to uppercase if 'upper' flag is provided
 	if toUpper {
 		generatedUUID = strings.ToUpper(generatedUUID)
 	}
