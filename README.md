@@ -5,7 +5,7 @@ UTX is a lightweight and versatile command-line utility providing various functi
 ## 📥 Installation
 
 1. Download the `utx` executable.
-2. Place it in a directory included in your system's `PATH`.
+2. Place it in a directory included in your system's `PATH`. (e.g for windows `C:\Windows\System32\`)
 3. Run `utx --help` to check available commands.
 
 ---
