@@ -13,6 +13,16 @@ func main() {
 		return
 	}
 
+	commandName := os.Args[1]
+	args := os.Args[2:]
+
+	// Load aliases and check if the command is an alias
+	aliasCmd := &commands.AliasCommand{}
+	if aliasCmd.IsAlias(commandName) {
+		aliasCmd.Execute([]string{commandName})
+		return
+	}
+
 	invoker := NewInvoker()
 	invoker.RegisterCommand("guid", &commands.GuidCommand{})
 	invoker.RegisterCommand("str", &commands.StringCommand{})
@@ -21,6 +31,7 @@ func main() {
 	invoker.RegisterCommand("net", &commands.NetworkCommand{})
 	invoker.RegisterCommand("pwd", &commands.PasswordCommand{})
 	invoker.RegisterCommand("help", &commands.HelpCommand{})
+	invoker.RegisterCommand("alias", aliasCmd)
 
-	invoker.ExecuteCommand(os.Args[1], os.Args[2:])
+	invoker.ExecuteCommand(commandName, args)
 }
