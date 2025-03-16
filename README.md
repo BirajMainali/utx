@@ -123,5 +123,3 @@ utx net public-ip
 utx pwd 16 --special --numbers
 # Output: A@9fL3$z!Qx72Nv#
 ```
-
-This version includes alias support so users can store and execute commands efficiently! 🚀
