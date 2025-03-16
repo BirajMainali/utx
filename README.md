@@ -18,6 +18,7 @@ UTX is a lightweight and versatile command-line utility providing various functi
 | `utx alias add <name> "<command>"` | Adds an alias for a command. |
 | `utx alias remove <name>` | Removes an alias. |
 | `utx alias list` | Lists all stored aliases. |
+| `utx alias export` | Exports all aliases|
 | `utx <alias-name>` | Executes the stored alias. |
 
 #### **Example Usage:**
@@ -37,11 +38,17 @@ utx alias list
 ✅ Displays all stored aliases.
 
 ```sh
+utx alias export
+```
+✅ Exports all aliases.
+
+```sh
 utx alias remove gitupdate
 ```
 ✅ Deletes `gitupdate`.
 
 ---
+
 
 ### **2️⃣ Date Utilities**
 | Command | Description |
