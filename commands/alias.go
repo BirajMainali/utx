@@ -52,7 +52,7 @@ func saveAliases(aliases AliasMap) error {
 
 func (a *AliasCommand) Execute(args []string) {
 	if len(args) < 1 {
-		fmt.Println("Usage: alias <add|remove|list|run> [name] [command]")
+		fmt.Println("Usage: alias <add|remove|list|run|export> [name] [command]")
 		return
 	}
 
@@ -74,6 +74,8 @@ func (a *AliasCommand) Execute(args []string) {
 		removeAlias(args[1])
 	case "list":
 		listAliases()
+	case "export":
+		exportAliases()
 	default:
 		executeAlias(operation)
 	}
@@ -122,5 +124,13 @@ func runCommand(command string) {
 	err := cmd.Run()
 	if err != nil {
 		fmt.Println("Error executing command:", err)
+	}
+}
+
+func exportAliases() {
+	aliases, _ := loadAliases()
+	fmt.Println("Exported Aliases:")
+	for name, command := range aliases {
+		fmt.Printf("utx add %s \"%s\"\n", name, command)
 	}
 }
