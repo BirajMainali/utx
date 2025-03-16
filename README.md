@@ -1,70 +1,101 @@
 # UTX - A Command-Line Utility Tool
 
-UTX is a lightweight and versatile command-line utility providing various functionalities, including date manipulation, GUID generation, JSON processing, networking, password generation, and string operations.
+UTX is a lightweight and versatile command-line utility providing various functionalities, including date manipulation, GUID generation, JSON processing, networking, password generation, string operations, and alias management for automating repetitive tasks.
 
 ## 📥 Installation
 
 1. Download the `utx` executable.
-2. Place it in a directory included in your system's `PATH`. (e.g for windows `C:\Windows\System32\`)
+2. Place it in a directory included in your system's `PATH`. (e.g for Windows `C:\Windows\System32\`)
 3. Run `utx --help` to check available commands.
 
 ---
 
 ## 🛠️ Usage
 
-### **1️⃣ Date Utilities**
-| Command | Description | Options |
-|---------|------------|---------|
-| `utx date now` | Returns the current local date and time. | N/A |
-| `utx date utc` | Returns the current UTC date and time. | N/A |
-| `utx date add <duration>` | Adds a specified duration (e.g., `1d`, `24h`, `30m`) to the current time. | `d`, `h`, `m` |
-| `utx date diff <date1> <date2>` | Calculates the difference between two dates. | N/A |
+### **1️⃣ Alias Management**
+| Command | Description |
+|---------|------------|
+| `utx alias add <name> "<command>"` | Adds an alias for a command. |
+| `utx alias remove <name>` | Removes an alias. |
+| `utx alias list` | Lists all stored aliases. |
+| `utx <alias-name>` | Executes the stored alias. |
+
+#### **Example Usage:**
+```sh
+utx alias add gitupdate "git pull origin main"
+```
+✅ Saves `git pull origin main` as `gitupdate`
+
+```sh
+utx gitupdate
+```
+✅ Runs `git pull origin main` without needing `utx alias run gitupdate`.
+
+```sh
+utx alias list
+```
+✅ Displays all stored aliases.
+
+```sh
+utx alias remove gitupdate
+```
+✅ Deletes `gitupdate`.
 
 ---
 
-### **2️⃣ GUID (UUID) Generation**
-| Command | Description | Options |
-|---------|------------|---------|
-| `utx guid v1` | Generates a time-based UUID (Version 1). | `--upper` (uppercase UUID) |
-| `utx guid v4` | Generates a randomly generated UUID (Version 4). | `--upper` (uppercase UUID) |
-| `utx guid v5 <namespace> <name>` | Generates a UUID (Version 5) based on a namespace and name. | `--upper` (uppercase UUID) |
+### **2️⃣ Date Utilities**
+| Command | Description |
+|---------|------------|
+| `utx date now` | Returns the current local date and time. |
+| `utx date utc` | Returns the current UTC date and time. |
+| `utx date add <duration>` | Adds a specified duration (e.g., `1d`, `24h`, `30m`) to the current time. |
+| `utx date diff <date1> <date2>` | Calculates the difference between two dates. |
 
 ---
 
-### **3️⃣ JSON Utilities**
-| Command | Description | Options |
-|---------|------------|---------|
-| `utx json validate <json>` | Validates if the given input is a proper JSON format. | N/A |
-| `utx json format <json>` | Formats and pretty-prints a JSON input. | N/A |
+### **3️⃣ GUID (UUID) Generation**
+| Command | Description |
+|---------|------------|
+| `utx guid v1` | Generates a time-based UUID (Version 1). |
+| `utx guid v4` | Generates a randomly generated UUID (Version 4). |
+| `utx guid v5 <namespace> <name>` | Generates a UUID (Version 5) based on a namespace and name. |
 
 ---
 
-### **4️⃣ Network Utilities**
-| Command | Description | Options |
-|---------|------------|---------|
-| `utx net local-ip` | Retrieves the local machine's IP address. | N/A |
-| `utx net public-ip` | Fetches the machine’s public IP address. | N/A |
-| `utx net ping <hostname/IP>` | Sends an ICMP ping request to a target hostname or IP. | `-c <count>` (number of pings) |
-| `utx net dns <domain>` | Resolves a domain name to its IP addresses. | N/A |
-| `utx net interfaces` | Lists all available network interfaces. | N/A |
+### **4️⃣ JSON Utilities**
+| Command | Description |
+|---------|------------|
+| `utx json validate <json>` | Validates if the given input is a proper JSON format. |
+| `utx json format <json>` | Formats and pretty-prints a JSON input. |
 
 ---
 
-### **5️⃣ Password Generator**
-| Command | Description | Options |
-|---------|------------|---------|
-| `utx pwd <length>` | Generates a secure password of the specified length. | `--special`, `--numbers`, `--uppercase` |
+### **5️⃣ Network Utilities**
+| Command | Description |
+|---------|------------|
+| `utx net local-ip` | Retrieves the local machine's IP address. |
+| `utx net public-ip` | Fetches the machine’s public IP address. |
+| `utx net ping <hostname/IP>` | Sends an ICMP ping request to a target hostname or IP. |
+| `utx net dns <domain>` | Resolves a domain name to its IP addresses. |
+| `utx net interfaces` | Lists all available network interfaces. |
 
 ---
 
-### **6️⃣ String Utilities**
-| Command | Description | Options |
-|---------|------------|---------|
-| `utx str length <string>` | Returns the length of the string. | N/A |
-| `utx str compare <str1> <str2>` | Compares two strings and returns if they are equal. | N/A |
-| `utx str upper <string>` | Converts the string to uppercase. | N/A |
-| `utx str lower <string>` | Converts the string to lowercase. | N/A |
-| `utx str trim <string>` | Trims leading and trailing spaces from the string. | N/A |
+### **6️⃣ Password Generator**
+| Command | Description |
+|---------|------------|
+| `utx pwd <length>` | Generates a secure password of the specified length. |
+
+---
+
+### **7️⃣ String Utilities**
+| Command | Description |
+|---------|------------|
+| `utx str length <string>` | Returns the length of the string. |
+| `utx str compare <str1> <str2>` | Compares two strings and returns if they are equal. |
+| `utx str upper <string>` | Converts the string to uppercase. |
+| `utx str lower <string>` | Converts the string to lowercase. |
+| `utx str trim <string>` | Trims leading and trailing spaces from the string. |
 
 ---
 
@@ -84,3 +115,6 @@ utx net public-ip
 
 utx pwd 16 --special --numbers
 # Output: A@9fL3$z!Qx72Nv#
+```
+
+This version includes alias support so users can store and execute commands efficiently! 🚀
