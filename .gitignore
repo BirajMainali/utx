@@ -28,3 +28,6 @@ go.mod~
 *.tmp
 *.cache
 *.DS_Store
+
+# Ignore .aliases.json
+.aliases.json
